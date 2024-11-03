@@ -14,6 +14,9 @@ class NoInsomnia : JavaPlugin() {
 
     override fun onDisable() {
         // Plugin shutdown logic
-        logger.info("NoInsomnia plugin has been disabled.")
+        server.worlds.forEach { world ->
+            world.setGameRuleValue("doInsomnia", "true")
+            logger.info("NoInsomnia plugin has been disabled.")
+        }
     }
 }
